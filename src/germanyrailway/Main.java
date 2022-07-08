@@ -30,9 +30,21 @@ public class Main {
             System.out.println("6. Tambah Jalur");
             System.out.println("7. Cari Kota");
             System.out.println("8. Cari Jalur");
-            System.out.println("9. Lihat Data Penumpang");
+            System.out.println("9. Lihat Antrian");
+            System.out.println("10. Lihat Data Penumpang");
             System.out.print("Silahkan Pilih Menu Di atas : ");
             pilihan = s.nextInt();
+            
+            switch (pilihan) {
+                case 1:
+                    
+                    break;
+                case 2:
+                    
+                    break;
+                default:
+                    throw new AssertionError();
+            }
         } while (pilihan != 0);
     }
 }
