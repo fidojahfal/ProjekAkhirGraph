@@ -18,6 +18,7 @@ public class Main {
         Scanner s = new Scanner(System.in);
 
         int pilihan;
+        //AAAAA
         do {
             System.out.println("PEMESANAN TIKET KERETA BAWAH LAUT");
             System.out.println("Pilih Menu :");
