@@ -70,10 +70,10 @@ public class Graph {
                     }
                 }
             } else {
-                System.out.println("Simpul " + namaSimpul + " tidak itemukan!");
+                System.out.println("Kota " + namaSimpul + " tidak itemukan!");
             }
         } else {
-            System.out.println("Simpul " + namaSimpul + " tidak itemukan!");
+            System.out.println("Kota " + namaSimpul + " tidak itemukan!");
         }
     }
 
@@ -118,10 +118,10 @@ public class Graph {
                     }
                 }
             } else {
-                System.out.println("Simpul " + namaJalur + " tidak itemukan!");
+                System.out.println("Kota " + namaJalur + " tidak itemukan!");
             }
         } else {
-            System.out.println("Simpul " + namaJalur + " tidak itemukan!");
+            System.out.println("Kota " + namaJalur + " tidak itemukan!");
         }
     }
 
@@ -142,10 +142,10 @@ public class Graph {
         if (node != null) {
             while (node != null) {
                 jumlahSimpul++;
-                System.out.println("\nSimpul : " + node.infoSimpul);
+                System.out.println("\nKota : " + node.infoSimpul);
                 Jalur jlr = node.jalur;
                 while (jlr != null) {
-                    System.out.println("Ada jalur ke simpul : " + jlr.simpul.infoSimpul + " dengan beban : " + jlr.bebanJalur);
+                    System.out.println("Ada jalur ke kota : " + jlr.simpul.infoSimpul + " dengan jarak : " + jlr.bebanJalur + " km");
                     jlr = jlr.nextJalur;
                 }
                 node = node.nextSimpul;
