@@ -83,7 +83,7 @@ public class Graph {
         boolean ketemu = false;
         
         while (node != null && ketemu == false) {
-            if (node.infoSimpul == namaSimpul) {
+            if (node.infoSimpul.equals(namaSimpul)) {
                 hasil = node;
                 ketemu = true;
             } else {
@@ -98,7 +98,7 @@ public class Graph {
         boolean ketemu = false;
         
         while (node != null && ketemu == false) {
-            if (node.infoSimpul == namaSimpul) {
+            if (node.infoSimpul == null ? namaSimpul == null : node.infoSimpul.equals(namaSimpul)) {
                 ketemu = true;
             } else {
                 node = node.nextSimpul;
@@ -155,7 +155,7 @@ public class Graph {
         Simpul node = firstSimpul;
         if (node != null) {
             while (node != null) {
-                System.out.println(node.infoSimpul + "\n");
+                System.out.println(node.infoSimpul);
                 node = node.nextSimpul;
             }
         }
