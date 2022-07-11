@@ -5,6 +5,7 @@
 package germanyrailway;
 
 import java.util.Scanner;
+import germanyrailway.Antrian.*;
 
 /**
  *
@@ -14,9 +15,9 @@ public class Main {
 
     public static void main(String[] args) {
         Graph g = new Graph();
-
+        Queue q = new Queue();
         Scanner s = new Scanner(System.in);
-
+        
         int pilihan;
         //AAAAA
         do {
@@ -37,10 +38,18 @@ public class Main {
             
             switch (pilihan) {
                 case 1:
-                    
+                    s.nextLine();
+                    System.out.println("\nMenu Tambah Antrian");
+                    System.out.print("Masukkan Nama : ");
+                    String nama = s.nextLine();
+                    q.tambahAntrian(nama);
                     break;
                 case 2:
                     
+                    break;
+                case 9:
+                    System.out.println("\n---- Daftar Antrian ----");
+                    q.tampilAntrian();
                     break;
                 default:
                     throw new AssertionError();

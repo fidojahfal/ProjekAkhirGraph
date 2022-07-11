@@ -12,14 +12,16 @@ package germanyrailway.Antrian;
 public class Queue {
     Elemen first;
     Elemen last;
+    int nomor;
     
-    Queue(){
+    public Queue(){
         first = null;
         last = null;
+        nomor = 1;
     }
     
-    void tambahAntrian(String nama){
-        int nomor = 1;
+    public void tambahAntrian(String nama){
+        
         Elemen antrianBaru = new Elemen(nomor, nama);
         
         if(first == null){
@@ -33,9 +35,10 @@ public class Queue {
             
             pointer.next = antrianBaru;
         }
+        nomor += 1;
     }
     
-    void prosesAntrian(){
+    public void prosesAntrian(){
         if(first == null){
             System.out.println("Tidak ada antrian!");
         }else{
@@ -43,5 +46,20 @@ public class Queue {
         }
     }
     
-    
+    public void tampilAntrian() {
+        Elemen pointer = first;
+
+        if (pointer == null) {
+            System.out.println("Linked List Kosong!");
+        } else {
+            int i = 1;
+            while (pointer != null && i <= 99) {
+                System.out.println("-------------------------");
+                System.out.println("Antrian nomor : " + pointer.data.nomor);
+                System.out.println("Nama : " + (pointer.data.nama));
+                pointer = pointer.next;
+                i++;
+            }
+        }
+    }
 }
