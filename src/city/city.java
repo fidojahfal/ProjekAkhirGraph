@@ -4,13 +4,86 @@
  */
 package city;
 import germanyrailway.Graph;
+import germanyrailway.Simpul;
+import java.util.Scanner;
 
 /**
  *
  * @author Admin
  */
 public class city {
+    public static void addNode(Graph G, String name) {
+        Simpul node = G.cariSimpul(name);
+        if (node == null) {
+            G.tambahSimpul(name);
+            System.out.println("Tambah kota " + name + " pada graph");
+        } else {
+            System.out.println("Kota " + name + " sudah ada");
+        }
+    }
+
+    public static void addEdge(Graph G, String ori, String dest, int weight) {
+        Simpul end = G.cariSimpul(dest);
+        Simpul begin = G.cariSimpul(ori);
+        if (begin != null && end != null) {
+            if (!G.cekJalur(begin, end)) {
+                G.tambahJalur(end, weight, begin);
+                System.out.println("Tambah jalur dari " + begin.infoSimpul + " ke " + end.infoSimpul + " dengan bobot " + weight);
+            } else {
+                System.out.println("Sudah ada jalur dari " + begin.infoSimpul + " ke " + end.infoSimpul);
+            }
+        }
+    }
+    
+    public static void addEdgeL(Graph G, String ori, String dest, int weight) {
+        Simpul end = G.cariSimpul(dest);
+        Simpul begin = G.cariSimpul(ori);
+        if (begin != null && end != null) {
+            if (!G.cekJalur(begin, end)) {
+                G.tambahJalur(end, weight, begin);
+                G.tambahJalur(begin, weight, end);
+                System.out.println("Tambah jalur dari " + begin.infoSimpul + " ke " + end.infoSimpul + " dengan bobot " + weight);
+            } else {
+                System.out.println("Sudah ada jalur dari " + begin.infoSimpul + " ke " + end.infoSimpul);
+            }
+        }
+    }
     public static void main(String[] args) {
-        Graph g = new Graph();
+        Graph G = new Graph();
+        addNode(G, "Berlin");
+        addNode(G, "Hamburg");
+        addNode(G, "Lubeck");
+        addNode(G, "Hannover");
+        addNode(G, "Rostock");
+        addNode(G, "Kiel");
+        addNode(G, "Leipzig");
+        addNode(G, "Dresden");
+        addNode(G, "Magdeburg");
+        addNode(G, "Bremen");
+        
+        addEdgeL(G, "Berlin", "Dresden", 165);
+        addEdgeL(G, "Dresden", "Leipzig", 100);
+        addEdgeL(G, "Leipzig", "Magdeburg", 101);
+        addEdgeL(G, "Magdeburg", "Hannover", 132);
+        addEdgeL(G, "Hannover", "Bremen", 101);
+        addEdgeL(G, "Bremen", "Hamburg", 97);
+        addEdgeL(G, "Hamburg", "Kiel", 87);
+        addEdgeL(G, "Kiel", "Lubeck", 64);
+        addEdgeL(G, "Lubeck", "Rostock", 60);
+        addEdgeL(G, "Rostock", "Berlin", 196);
+        //lihat daftar kota
+        System.out.println("LIST KOTA");
+        G.cetakSimpul();
+        //tambah kota
+        Scanner input = new Scanner(System.in);
+        System.out.println("TAMBAH KOTA");
+        System.out.println("Masukkan nama kota : ");
+        String newKota = input.next();
+        addNode(G, newKota);
+        //cari kota
+        System.out.println("CARI KOTA");
+        System.out.println("Masukkan nama kota : ");
+        String cariKota = input.next();
+        System.out.println("Kota " + cariKota + " " + (G.cekSimpul(cariKota) ? "tersedia" : "tidak tersedia"));
     }
 }

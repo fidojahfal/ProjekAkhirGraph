@@ -93,6 +93,20 @@ public class Graph {
         return hasil;
     }
 
+    public boolean cekSimpul (String namaSimpul) {
+        Simpul node = firstSimpul;
+        boolean ketemu = false;
+        
+        while (node != null && ketemu == false) {
+            if (node.infoSimpul == namaSimpul) {
+                ketemu = true;
+            } else {
+                node = node.nextSimpul;
+            }
+        }
+        return ketemu;
+    }
+    
     public void hapusJalur (String namaJalur) {
         Simpul node = firstSimpul;
         if (node != null) {
@@ -135,6 +149,16 @@ public class Graph {
             }
         }
         return jumlahSimpul;
+    }
+    
+    public void cetakSimpul () {
+        Simpul node = firstSimpul;
+        if (node != null) {
+            while (node != null) {
+                System.out.println(node.infoSimpul + "\n");
+                node = node.nextSimpul;
+            }
+        }
     }
 
     public void cetakGraph() {

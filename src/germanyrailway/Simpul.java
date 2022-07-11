@@ -9,9 +9,9 @@ package germanyrailway;
  * @author Admin
  */
 public class Simpul {
-    String infoSimpul;
-    Simpul nextSimpul;
-    Jalur jalur;
+    public String infoSimpul;
+    public Simpul nextSimpul;
+    public Jalur jalur;
 
     public Simpul() {
         infoSimpul = null;
