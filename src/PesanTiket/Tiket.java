@@ -2,18 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package germanyrailway.Antrian;
+package PesanTiket;
+
+import germanyrailway.Antrian.*;
 
 /**
  *
  * @author Kargo
  */
-public class Antrian {
-    public int nomor;
-    public String nama;
+public class Tiket {
+    String nama;
+    String rute;
+    double harga;
     
-    public Antrian(int nomor, String nama){
-        this.nomor = nomor;
+    public Tiket(String nama, String rute, double harga){
         this.nama = nama;
+        this.rute = rute;
+        this.harga = harga;
     }
 }

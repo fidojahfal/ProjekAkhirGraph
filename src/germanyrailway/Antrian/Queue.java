@@ -10,7 +10,7 @@ package germanyrailway.Antrian;
  * @author Kargo
  */
 public class Queue {
-    Elemen first;
+    public Elemen first;
     Elemen last;
     int nomor;
     
@@ -34,6 +34,7 @@ public class Queue {
             }
             
             pointer.next = antrianBaru;
+            last = antrianBaru;
         }
         nomor += 1;
     }
