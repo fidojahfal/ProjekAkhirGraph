@@ -48,6 +48,7 @@ public class city {
             }
         }
     }
+    
     public static void main(String[] args) {
         Graph G = new Graph();
         addNode(G, "Berlin");
@@ -76,14 +77,15 @@ public class city {
         G.cetakSimpul();
         //tambah kota
         Scanner input = new Scanner(System.in);
+        Scanner Input = new Scanner(System.in);
         System.out.println("TAMBAH KOTA");
-        System.out.println("Masukkan nama kota : ");
-        String newKota = input.next();
+        System.out.print("Masukkan nama kota : ");
+        String newKota = input.nextLine();
         addNode(G, newKota);
         //cari kota
         System.out.println("CARI KOTA");
-        System.out.println("Masukkan nama kota : ");
-        String cariKota = input.next();
+        System.out.print("Masukkan nama kota : ");
+        String cariKota = Input.nextLine();
         System.out.println("Kota " + cariKota + " " + (G.cekSimpul(cariKota) ? "tersedia" : "tidak tersedia"));
     }
 }
