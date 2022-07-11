@@ -191,6 +191,22 @@ public class Graph {
         return ada;
     }
 
+    public void cetakJalur() {
+        Simpul node = firstSimpul;
+        if (node != null) {
+            while (node != null) {
+                Jalur jlr = node.jalur;
+                while (jlr != null) {
+                    System.out.println(node.infoSimpul + " - " + jlr.simpul.infoSimpul + " dengan jarak : " + jlr.bebanJalur + " km");
+                    jlr = jlr.nextJalur;
+                }
+                node = node.nextSimpul;
+            }
+        } else {
+            System.out.println("Graph Kosong!");
+        }
+    }
+    
     public int getNilaiJalur(String ori, String dest) {
         int nilai = 0;
         Simpul end = cariSimpul(dest);
@@ -203,5 +219,9 @@ public class Graph {
             jlr = jlr.nextJalur;
         }
         return nilai;
+    }
+
+    boolean cekJalur(String ori, String dest) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
