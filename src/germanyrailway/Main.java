@@ -100,14 +100,15 @@ public class Main {
             pilihan = s.nextInt();
 
             switch (pilihan) {
-                case 1:
+                case 1 -> {
                     s.nextLine();
                     System.out.println("\nMenu Tambah Antrian");
                     System.out.print("Masukkan Nama : ");
                     String nama = s.nextLine();
                     q.tambahAntrian(nama);
-                    break;
-                case 2:
+                    System.out.println("");
+                }
+                case 2 -> {
                     if (q.first == null) {
                         break;
                     }
@@ -166,45 +167,89 @@ public class Main {
                     t.tambahTiket(namaPembeli, rute, hargaTotal);
                     q.prosesAntrian();
                     System.out.println("");
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     System.out.println("LIST KOTA");
                     g.cetakSimpul();
-                    break;
-                case 4:
-
-                    break;
-                case 5:
-                    Scanner input = new Scanner(System.in);
+                    System.out.println("");
+                }
+                case 4 -> {
+                    System.out.println("LIST RUTE YANG TERSEDIA");
+                    g.cetakJalur();
+                    System.out.println("");
+                }
+                case 5 -> {
+                    s.nextLine();
                     System.out.println("TAMBAH KOTA");
                     System.out.print("Masukkan nama kota : ");
-                    String newKota = input.nextLine();
+                    String newKota = s.nextLine();
                     addNode(g, newKota);
-                    break;
-                case 6:
-
-                    break;
-                case 7:
-                    Scanner Input = new Scanner(System.in);
+                    System.out.println("");
+                }
+                case 6 -> {
+                    s.nextLine();
+                    String ori, dest;
+                    System.out.println("TAMBAH JALUR");
+                    do {
+                        System.out.print("Masukkan kota awal : ");
+                        ori = s.nextLine();
+                        g.cekSimpul(ori);
+                    } while (!g.cekSimpul(ori));
+                    do {
+                        System.out.print("Masukkan kota tujuan : ");
+                        dest = s.nextLine();
+                        g.cekSimpul(dest);
+                    } while (!g.cekSimpul(dest));
+                    System.out.print("Jarak : ");
+                    int jarak = s.nextInt();
+                    System.out.print("Jalur bolak balik? (Y/N): ");
+                    String yes = s.next();
+                    if (yes.equals("Y") || yes.equals("y")) {
+                        addEdgeL(g, ori, dest, jarak);
+                    } else {
+                        addEdge(g, ori, dest, jarak);
+                    }
+                    System.out.println("");
+                }
+                case 7 -> {
+                    s.nextLine();
                     System.out.println("CARI KOTA");
                     System.out.print("Masukkan nama kota : ");
-                    String cariKota = Input.nextLine();
+                    String cariKota = s.nextLine();
                     System.out.println("Kota " + cariKota + " " + (g.cekSimpul(cariKota) ? "tersedia" : "tidak tersedia"));
-                    break;
-                case 8:
-
-                    break;
-                case 9:
+                    System.out.println("");
+                }
+                case 8 -> {
+                    s.nextLine();
+                    System.out.println("CEK JALUR");
+                    String ori;
+                    do {
+                        System.out.print("Masukkan kota awal : ");
+                        ori = s.nextLine();
+                        g.cekSimpul(ori);
+                    } while (!g.cekSimpul(ori));
+                    String dest;
+                    do {
+                        System.out.print("Masukkan kota tujuan : ");
+                        dest = s.nextLine();
+                        g.cekSimpul(dest);
+                    } while (!g.cekSimpul(dest));
+                    System.out.println(g.cekJalur(g.cariSimpul(ori), g.cariSimpul(dest)) ? "Jalur tersedia" : "Jalur tidak ditemukan");
+                    System.out.println("");
+                }
+                case 9 -> {
                     System.out.println("\n---- Daftar Antrian ----");
                     q.tampilAntrian();
-                    break;
-                case 10:
+                    System.out.println("");
+                }
+                case 10 -> {
                     System.out.println("\n---- Daftar Penumpang ----");
                     t.lihatData();
                     System.out.println("");
-                    break;
-                default:
+                }
+                default -> {
                     throw new AssertionError();
+                }
             }
         } while (pilihan != 0);
     }
